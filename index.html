@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Autocomplete with up/down key scrolling enabled : Autocomplete with up/down key scrolling">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Autocomplete with up/down key scrolling enabled</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mehtaad/Autocomplete">View on GitHub</a>
+
+          <h1 id="project_title">Autocomplete with up/down key scrolling enabled</h1>
+          <h2 id="project_tagline">Autocomplete with up/down key scrolling</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mehtaad/Autocomplete/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mehtaad/Autocomplete/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="allmighty-autocomplete" class="anchor" href="#allmighty-autocomplete"><span class="octicon octicon-link"></span></a>allmighty-autocomplete</h1>
+
+<p>Added scrolling using up-down keys</p>
+
+<p>Simple to use autocomplete directive in a module for AngularJS!
+Supports arrow keys to traverse suggestions as well as mouse input.
+You can load the suggestions from a remote REST API, it also supports promises.</p>
+
+<p>Checkout <a href="http://justgoscha.github.io/allmighty-autocomplete/">the demo</a> to see what it does.</p>
+
+<h2>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<p>To use it you need of course AngularJS, so make sure it is loaded first. I always like to use Google's CDN for that:</p>
+
+<div class="highlight highlight-html"><pre>  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<p>Also you should load the stylesheet of the autocomplete:</p>
+
+<div class="highlight highlight-html"><pre>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"style/autocomplete.css"</span><span class="nt">&gt;</span>
+</pre></div>
+
+<p>Then in your HTML you should load it before the script of your main app. Like this:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"script/autocomplete.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"script/app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<p>In your main script file you should add it as dependency:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'app'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'autocomplete'</span><span class="p">]);</span>
+</pre></div>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>If you now want an autocomplete you can just use the tag <code>&lt;autocomplete&gt;</code> tag in your HTML. With the <code>data</code> parameter you can pass in an array that will be used for autocompletion. You need to pass there something which is available in the $scope of your controller.</p>
+
+<p>You can also pass a function that receives changes with the <code>on-type</code> attribute. This is useful if you need to load external resources from a REST API, for example, you can then upload the array you passed into <code>data</code> and it will automatically use the changed array.</p>
+
+<h3>
+<a name="attributes" class="anchor" href="#attributes"><span class="octicon octicon-link"></span></a>Attributes</h3>
+
+<p><code>data</code> : Pass an array to the autocomplete directive. Should be accessible in the $scope of your controller.</p>
+
+<p><code>on-type</code> : <em>(optional)</em> Pass a function that will receive changes, when somebody types something. It passes the full string for any character typed or deleted. You can use that for example to update the array that you passed in data.</p>
+
+<p><code>on-select</code> : <em>(optional)</em> Pass a function that will receive changes, when a suggestion is selected. It passes the full string of the suggestion.</p>
+
+<p><code>click-activation</code> : <em>(optional)</em> When <code>true</code>, the suggestion box opens on click (unfortunately onfoucs is not implemented properly in most browsers right now). By default it is only activated, when you start typing something.</p>
+
+<p><code>ng-model</code>: What you typed in will be in this variable and accessible in the $scope of the controller.</p>
+
+<p><code>attr-placeholder</code>: <em>(optional)</em> Sets desired text as placeholder into the input element of autocomplete directive. By default it's "start typing..."</p>
+
+<p><code>attr-class</code>: <em>(optional)</em> Change the class of the <code>div</code> containing the <code>input</code> and suggestions elements, allowing you to change their style according to your needs.</p>
+
+<p><code>attr-id</code>: <em>(optional)</em> Change the id of the containing <code>div</code> element, see <code>attrs-class</code>.</p>
+
+<p><code>attr-input-class</code>: <em>(optional)</em> Set the class of the <code>input</code> element, allowing you to style the input field directly.</p>
+
+<p><code>attr-input-id</code>: <em>(optional)</em> Change the id of the <code>input</code> element, see <code>attrs-input-class</code>.</p>
+
+<h2>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<p>HTML:</p>
+
+<div class="highlight highlight-html"><pre>    <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">"MyCtrl"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;autocomplete</span> <span class="na">ng-model=</span><span class="s">"yourchoice"</span> <span class="na">data=</span><span class="s">"movies"</span> <span class="na">on-type=</span><span class="s">"updateMovies"</span><span class="nt">&gt;&lt;/autocomplete&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<p>JavaScript:</p>
+
+<div class="highlight highlight-javascript"><pre>    <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'app'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'autocomplete'</span><span class="p">]);</span>
+
+    <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'MyCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">MovieRetriever</span><span class="p">){</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">movies</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Lord of the Rings"</span><span class="p">,</span>
+                        <span class="s2">"Drive"</span><span class="p">,</span>
+                        <span class="s2">"Science of Sleep"</span><span class="p">,</span>
+                        <span class="s2">"Back to the Future"</span><span class="p">,</span>
+                        <span class="s2">"Oldboy"</span><span class="p">];</span>
+
+        <span class="c1">// gives another movie array on change</span>
+        <span class="nx">$scope</span><span class="p">.</span><span class="nx">updateMovies</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">typed</span><span class="p">){</span>
+            <span class="c1">// MovieRetriever could be some service returning a promise</span>
+            <span class="nx">$scope</span><span class="p">.</span><span class="nx">newmovies</span> <span class="o">=</span> <span class="nx">MovieRetriever</span><span class="p">.</span><span class="nx">getmovies</span><span class="p">(</span><span class="nx">typed</span><span class="p">);</span>
+            <span class="nx">$scope</span><span class="p">.</span><span class="nx">newmovies</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+              <span class="nx">$scope</span><span class="p">.</span><span class="nx">movies</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+
+</pre></div>
+
+<h2>
+<a name="change-log" class="anchor" href="#change-log"><span class="octicon octicon-link"></span></a>Change log</h2>
+
+<p><strong><em>07.03.2014</em></strong></p>
+
+<ul>
+<li>
+<code>attr-input-class</code> &amp; <code>attr-input-id</code> allow you to choose class and id of the input field. Handy when wanting to add bootstrap styles to the input field</li>
+</ul><p><strong><em>25.02.2014</em></strong></p>
+
+<ul>
+<li>
+<code>attr-class</code> &amp; <code>attr-id</code> allow you to choose class and id of the div where the autocomplete is contained, makes it more customizable</li>
+<li>
+<code>placeholder</code> renamed into <code>attr-placeholder</code>
+</li>
+</ul><p><strong><em>14.02.2014</em></strong></p>
+
+<ul>
+<li>got rid of jQuery dependency</li>
+</ul><p><strong><em>13.02.2014</em></strong></p>
+
+<ul>
+<li>ng-model can now be used outside to obtain the current search parameter</li>
+<li>hiding suggestions on blur</li>
+</ul><p><strong><em>31.01.2014</em></strong></p>
+
+<ul>
+<li>Stop showing suggestions on pushing escape</li>
+<li>select if suggestions should be shown after clicking on input with new parameter <code>click-activation</code>
+</li>
+<li>Added customizable placeholders for input line</li>
+<li>FIXED multiple autocomplete directives in one controller are now possible and behave as expected</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Autocomplete with up/down key scrolling enabled maintained by <a href="https://github.com/mehtaad">mehtaad</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
