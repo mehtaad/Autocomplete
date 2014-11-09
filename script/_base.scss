@@ -1,0 +1,585 @@
+
+/***********************New by helen stuff*************************/
+/*
+.activate {
+  background-color: #10bd1b;
+  border-radius: 3px;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  display: none;
+  margin-bottom: 10px;
+  font-size: 1em;
+  padding: 0.75em 0.85em 0.75em 0.85em;
+  text-align: center;
+
+  @media (min-width: 600px) {
+    display: block;
+    float: right;
+  }
+}
+
+.activate-mobile {
+  background-color: #10bd1b;
+  border-radius: 3px;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  display: none;
+  float: right;
+  font-size: 1em;
+  margin-bottom: 10px;
+  padding: 0.75em 1em 0.75em 1em;
+  text-align: center;
+  width: 100%;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
+*/
+/*.account-num {
+  padding-right: 10px;
+  color: #004879;
+}
+
+.routing-number {
+  clear: both;
+  float: left;
+  padding-top: 10px;
+
+  .routing-num {
+    color: #004879;
+    padding-right: 10px;
+  }
+
+  .actual-number {
+    color: #009fd6;
+  }
+}
+
+.left { 
+  float: left;
+}
+
+.account-info {
+  float: left;
+
+  @media (max-width: 768px) {
+    clear: both;
+  }
+}
+
+.settings-mobile-label {
+  margin: 10px 0 0 60px;
+  width: 87.5%;
+}*/
+/*********************************New stuff by helen*************************************/
+html {
+  background-color: $page_bg;
+
+  // Anti-alias type
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+.ShowIfIE9{//this style get applied for browser other than ie9
+  display: none;
+}
+.HideIfIE9{//this style get applied for browser other than ie9
+  display: block;
+  
+}
+// Temp/Debug
+
+.alert{
+  color: #f00;
+}
+
+// Global
+/* changes by helen*/
+#main {
+  color: $base_font_color;
+  background-color: $page_bg;
+  position: relative;
+  float: left;
+  width: 70%;
+  max-width: 1400px;
+  margin: 10px 0 0 220px; // changed by Helen old value was "width: 75%;"
+
+  @media (max-width: 768px) {
+    margin-left: 20px;
+    margin-top: 45px;
+  }
+
+  @media (max-width: 600px) {
+    margin-left: 10px;
+    width: 90%;
+  }
+
+
+  /* iPads (portrait) ----------- */
+  @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : portrait) {
+    margin: 10px 0 0 200px;
+  }
+}
+/* end changes by helen*/
+
+#main {
+  padding: 10px 0 0 20px;
+  color: $base_font_color;
+  background-color: $page_bg;
+  position: relative;
+  float: left;
+  max-width: 1400px;
+  width: 75%;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+}
+/* Start Added By Ashok to show masonry grid style*/ 
+@media (min-width: 1055px) {
+	.myAccountSummaryContent {
+		-moz-column-count: 2;
+		-moz-column-gap: 0px;
+		-webkit-column-count: 2;
+		
+		column-count: 2;
+		
+
+	}
+}
+/* End Added By Ashok to show masonry grid style*/
+ #main.liquid{
+   max-width: inherit !important;
+ }
+
+/* not used commented by ashok 
+.modal-transparent .jvFloat .placeHolder.active{
+  color: $form_placeholder_lt;
+}
+*/
+/* ACCOUNTS */
+.message{
+  margin: .25em 0 1em;
+  font-size: 1.4em;
+  text-align: center;
+  float: left;
+  width: 100%;
+}
+
+input {
+  outline: 0;
+}
+
+a {
+  color: $link_color;
+
+  &:visited {
+    color: $link_color;
+  }
+}
+
+h2.account-title{
+  font-size: 1.1em;
+  margin-top: 1.5em;
+  margin-left: 4em;
+  font-weight: 400;
+  clear: both;
+/* stuff from helen
+  @media (min-width: 769px) {
+    display: none;
+  }
+ */
+}
+/* stuff from helen
+.account-title-mobile {
+  display: none;
+  font-size: 1.5em;
+
+  @media (min-width: 769px) {
+    display: block;
+    margin-top: 1em;
+  }
+}
+*/
+
+ul.account-tiles{
+  margin-top: 1em;
+}
+
+li.tile{
+  margin: 0 0 10px 0;
+  display: block;
+  text-align: center;
+  //border-bottom: 1px solid #c2c0c6;
+}
+
+  .tile button.overview{
+    border: 0;
+    color: #009fd6;
+    display: block;
+    font-family: 'ProximaNovaLt';
+    height: 100%;
+    padding: 1.5em 0 1.5em 1.5em;
+    position: relative;
+    text-align:left;
+    text-decoration: none;
+    width: 100%;
+  }
+  
+    .tile button.overview .indicator{
+      position: absolute;
+      top: 42%;
+      right: 30px;
+      width: 18px;
+      height: 32px;
+      background: no-repeat url('../images/icon_caret_right_white.svg') top left transparent; /* original image: ../images/arrow-right.png; */
+      background-size: 16px 31px;
+    }
+
+    .bank{
+      clear: both;
+      background-color: transparent;
+    }
+    .card{
+      clear: both;
+      background-color: transparent;
+    }
+
+
+  .tile .actions{
+    background-color: $tile_bg;
+    border: 1px solid $tile_border;
+  }
+
+    .tile .actions a{
+      padding: 1em 3%;
+      text-align: center;
+      width: 50%;
+      display: block;
+      float: left;
+      text-decoration: none;
+      font-weight: 400;
+      border-right: 1px solid $tile_border;
+      font-size: .9em;
+    }
+
+      .tile .actions a:hover{
+        text-decoration: underline;
+      }
+
+      .tile .actions a.last{
+        border-right: none;
+      }
+
+.acct-value{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  clear: both;
+  color: #004879;
+  display: block;
+  float: left;
+  font-size: 1.15em;
+  margin: .6em 0 .5em;
+  padding: 0 1em .5em 0;
+  text-transform: uppercase;
+}
+
+.blue-txt {
+  color: #009fd6 !important;
+}
+
+.acct-type{
+  display: block;
+  margin-bottom: .25em;
+  font-size: .9em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #004879;
+}
+
+.acct-avail{
+  display: block;
+}
+
+  .acct-avail-label{
+    display: block;
+    font-size: .65em;
+    line-height: 2.3em;
+    white-space: nowrap;
+  }
+
+  .acct-avail-label img{
+    padding-left: .25em;
+    vertical-align: middle;
+  }
+
+  .acct-avail-credit{
+    font-size: 1.5em;
+  }
+
+  
+
+/* Utility Bar */
+.utility-bar{
+  min-height: 56px;
+
+
+  .search a{
+    color: #6D6D6D;
+    text-decoration: none;
+    margin-top: 1em;
+    display: inline-block;
+  }
+
+  .acct-statements{
+    text-align: right;
+  }
+
+  .util-link{
+    white-space: nowrap;
+    display: inline-block;
+    text-decoration: none;
+    margin: 1em 0 0 2em;
+    line-height: 1.5em;
+    &.first{
+      margin-left: 0;
+    }
+    &:hover{
+      text-decoration: underline;
+    }
+
+  }
+
+  //Search Field
+  .search-field{
+    margin-top: 0.75em;
+    background-color: #fff;
+    border: 1px solid $form_border;
+    padding: 0.25em 0.5em;
+    font-size: 1em;
+    color: #666;
+    &::-webkit-input-placeholder{font-style: italic; font-weight: normal!important;}
+    &:-moz-placeholder{font-style: italic; font-weight: normal;}
+    &::-moz-placeholder{font-style: italic; font-weight: normal;}
+    &:-ms-input-placeholder{font-style: italic; font-weight: normal;}
+    width: 300px;
+    margin-right: 0.5em;
+  }
+
+  .search-icon{
+    border: none;
+    height: 17px;
+    width: 17px;
+    background: transparent url('../images/icon-search.png') top left no-repeat;/* todo, use svg insetad of png  */
+    cursor: pointer;
+    text-indent: -999em;
+  }
+}
+/* Account Header (for Account Details) */
+.acct-header{
+  margin-top: 1.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: #009fd6;
+  text-align: center;
+}
+
+  .acct-header .acct-value-label{
+    line-height: 1.5em;
+    font-size: .75em;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .acct-header .acct-avail{
+    margin-top: 0;
+    margin-bottom: 1.9em;
+    text-transform: uppercase;
+   
+  }
+
+  .acct-avail .amount{
+    display: block;
+  font-size: 1.5em;
+  }
+
+  .acct-number,
+  .acct-routing{
+    margin-bottom: .5em;
+    font-size: .9em;
+  }
+
+  .acct-toggle{
+    display: inline-block;
+    min-width: 8em;
+  }
+  
+
+/* Utility Classes */
+.nowrap{
+  white-space: nowrap;
+}
+
+.center{
+  text-align: center;
+}
+
+.left{
+  text-align: left;
+}
+
+.right{
+  text-align: right;
+}
+
+.hide{
+  display: none;
+  visibility: hidden;
+}
+
+ #welcomePage{
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+@media (min-width: 320px) {
+.header_margin{margin: 8px 0 3px 1px;}
+}
+
+
+/* Medium Up */
+@media (min-width: 768px) {
+  #primary_nav{
+    z-index: 200;
+    left: 0 !important;
+  }
+
+  #main{
+    // padding: 10px 20px 10px 195px;              /* padding: 10px 20px 10px 162px; */
+      &.with-secondary-nav{
+      margin-top: 80px !important;
+      width: 80%;
+    }
+  }
+  #user-profile{
+  margin-left:15em;
+  
+  }
+
+  .header_margin{margin: 16px 0 3px 1px;}
+
+
+  .message{
+    margin: .25em 0 1.5em;
+    font-size: 1.8em;
+    text-align: center;
+    float: none;
+  }
+
+  h2.account-title{
+    font-size: 1.3em;
+  }
+
+  li.tile{
+    display: block;
+    margin: 0 10px 30px 0;
+    min-width: 380px;
+    padding-right: 10%;
+    text-align: left;
+    width: 90%;
+
+    @media (min-width: 900px) {
+      max-width: 900px;
+    }
+  }
+
+  .bank{
+    clear: both;
+    background-color: transparent;
+  }
+  .card{
+    clear: both;
+    background-color: transparent;
+  }
+
+  .acct-value{
+    margin-bottom: 0;
+    border-bottom: none;
+    display: block;
+    padding: 0;
+    color: #004879;
+}
+
+  .acct-avail{
+    margin-top: 4em; 
+
+    /* for med up! */
+    height:40px;
+  }
+
+  .acct-avail .sup-currency{
+    font-size: 1.75em !important;
+  }
+
+  .acct-header .acct-value-label{
+    display: inline;
+    font-size: 0.9em;
+    text-transform: none;
+  }
+
+  .acct-avail-label{
+    display: block;
+    float: left;
+    clear: both;
+    font-size: 1em;
+  }
+
+  .acct-header .acct-avail{
+    text-transform: none;
+  }
+
+  .acct-header .acct-avail .amount {
+    display: inline;    
+  }
+
+  .acct-avail .routingNumber {
+    font-size:1.45em;
+    display:block;
+    line-height:1.4em;
+  }
+
+  .btn-width{min-width:200px; cursor: pointer;}
+  .btn-width,
+  .btn-width:focus,
+  .btn-width:active {
+    border: 0;
+  }
+
+  .tile .actions a img{
+    display: inline;
+    vertical-align: middle;
+    padding-right: .5em;
+    margin-top: -0.2em;
+  }
+
+  .tile .actions a{
+    padding: 1.3em 3%;
+    height: 3.8em;
+    font-size: 1em;
+  }
+
+  .acct-header{
+    padding-top: 2em;
+    text-align: left;
+  }
+
+}
+
+/* Large Up */
+@media (min-width: 1200px) {
+
+}
